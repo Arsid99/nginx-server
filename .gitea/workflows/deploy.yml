@@ -24,8 +24,7 @@ jobs:
 
     - name: Restart Docker Compost
       run: |
-        docker compose down
         docker compose up build --no-cache
-        docker compose up -d
+        docker compose up -d --force-recreate
     #1) удаляет старые контейнеры, если они были запущены
     #2) поднимает новые контейнеры в фоновом режиме

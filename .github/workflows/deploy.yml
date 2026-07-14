@@ -18,6 +18,5 @@ jobs:
       # 4. Выполняем команду Docker для запуска контейнера
       - name: Run Docker Compose
         run: |
-          docker compose down
           docker compose up build --no-cache
-          docker compose up -d
+          docker compose up -d --force-recreate   
