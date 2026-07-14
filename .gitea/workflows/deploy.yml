@@ -5,12 +5,13 @@ on:
   push: #Когда пуш
     branches: # В ветку
       - main # Название ветки
-  workflow_dispatch: # разрешает запуск пайплайна из интерфейса гитеи
+  workflow_dispatch: # разрешает запуск пайплайна из интерфейса
 
 # Что делать
 jobs:
   deploy-containers:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    #runs-on: self-hosted
     # Когда подняли ранер на убунте, он передал гитее "Я умею вполнять задачу с тегом ubuntu-latest"
     # Гитея когда видит файл, отправляет ранерам сообщение - "Кто работает с ubuntu-latest?"
     # Ранер забирает задачу
