@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  web-blue:
+    image: nginx:alpine
+    container_name: app-blue
+    ports:
+      - "8081:80"
+    volumes:
+      - ./app1:/usr/share/nginx/html
+    restart: unless-stopped
+
+  web-green:
+    image: nginx:alpine
+    container_name: app-green
+    ports:
+      - "8082:80"
+    volumes:
+      - ./app2:/usr/share/nginx/html
+    restart: unless-stopped
+
+  web-red:
+    image: nginx:alpine
+    container_name: app-red
+    ports:
+      - "8083:80"
+    volumes:
+      - ./app3:/usr/share/nginx/html
+    restart: unless-stopped

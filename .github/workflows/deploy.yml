@@ -1,0 +1,22 @@
+name: Deploy Nginx Container
+
+# 1. Указываем триггер: запускать пайплайн только при пуше в ветку main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    # 2. Говорим GitHub Actions запускать этот шаг только на раннере с меткой production (наша Ubuntu)
+    runs-on: self-hosted
+    steps:
+      # 3. Скачиваем свежий код из репозитория в рабочую папку раннера
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      # 4. Выполняем команду Docker для запуска контейнера
+      - name: Run Docker Compose
+        run: |
+          docker compose down
+          docker compose up -d
