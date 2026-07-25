@@ -1,12 +1,12 @@
 version: '3.8'
 
 services:
-  web-blue:
-    build: ./app1
-    container_name: app-blue
+  web-blue: # название сервиса внутри сети ДокерКомпос, по нему происходит связь между контейнерами
+    build: ./app1 #Сборка - указываем что сборка(Dockerfile) находится в директории app1 вот его и используй
+    container_name: app-blue #Имя для контейнера что бы мы могли на него обращаться
     ports:
-      - "8081:80"
-    restart: unless-stopped
+      - "8081:80" #Внешний порт сервера(виртуалки) 8081 пробрасывается на внутрений порт докера - на 80
+    restart: unless-stopped #Указываем что бы контейнер всегда запускалса после ребута сервера, пока мы не напишем docker stop
 
   web-green:
     build: ./app2
@@ -21,5 +21,5 @@ services:
     ports:
       - "8083:80"
     restart: unless-stopped
-    
+
       
