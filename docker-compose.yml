@@ -21,11 +21,20 @@ services:
     ports:
       - "8083:80"
     restart: unless-stopped
-
+#Add Application 4
   web-purple:
     build: ./app4
     container_name: app-purple
     ports:
       - "8084:80"
     restart: unless-stopped
+#Add Application 5
+  web-yellow:
+    build: ./app5
+    container_name: app-yellow
+    ports:
+      - "8085:80"
+    restart: unless-stopped
+    
+      
     
